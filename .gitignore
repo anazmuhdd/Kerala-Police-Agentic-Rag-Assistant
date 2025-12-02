@@ -10,7 +10,6 @@ backend/__pycache__/
 backend/*.pyc
 frontend/__pycache__/
 backend/.env
-backend/dataset.csv
 data
 .github
 .dockerignore
