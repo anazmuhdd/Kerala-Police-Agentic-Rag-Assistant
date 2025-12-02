@@ -12,8 +12,7 @@ warnings.simplefilter("ignore", InsecureRequestWarning)
 
 # Load environment
 dotenv.load_dotenv()
-NVIDIA_API_KEY =  "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"
-
+NVIDIA_API_KEY = os.getenv("nvidia_api_key")
 if not NVIDIA_API_KEY:
     raise ValueError("NVIDIA_API_KEY not found in .env")
 
