@@ -8,3 +8,4 @@ openai
 websockets
 python-dotenv
 fastapi
+pandas
