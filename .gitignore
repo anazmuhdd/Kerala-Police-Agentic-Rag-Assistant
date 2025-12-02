@@ -1,0 +1,17 @@
+myenv
+vector_store
+.env
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+dist/
+backend/__pycache__/
+backend/*.pyc
+frontend/__pycache__/
+backend/.env
+backend/dataset.csv
+data
+.github
+.dockerignore
+backend/.dockerignore
