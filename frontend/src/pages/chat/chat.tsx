@@ -7,7 +7,7 @@ import { Overview } from "@/components/custom/overview";
 import { Header } from "@/components/custom/header";
 import {v4 as uuidv4} from 'uuid';
 
-const socket = new WebSocket("ws://18.207.134.107:8090/ws"); //change to your websocket endpoint
+const socket = new WebSocket("wss://18.207.134.107:8090/ws"); //change to your websocket endpoint
 
 // get the device (instance)'s websocket endpoint
 // const proto = window.location.protocol === "https:" ? "wss" : "ws";
