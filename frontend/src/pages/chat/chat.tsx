@@ -7,13 +7,24 @@ import { Overview } from "@/components/custom/overview";
 import { Header } from "@/components/custom/header";
 import {v4 as uuidv4} from 'uuid';
 
-//const socket = new WebSocket("ws://localhost:8090"); //change to your websocket endpoint
+const socket = new WebSocket("ws://18.207.134.107:8090/ws"); //change to your websocket endpoint
 
 // get the device (instance)'s websocket endpoint
-const proto = window.location.protocol === "https:" ? "wss" : "ws";
-const host = window.location.hostname;
-const socket = new WebSocket(`${proto}://${host}:8090`);
+// const proto = window.location.protocol === "https:" ? "wss" : "ws";
+// const host = window.location.hostname;
+// const socket = new WebSocket(`${proto}://${host}:8090`);
 
+socket.onopen = () => {
+  console.log("WebSocket connection established");
+}
+
+socket.onclose = () => {
+  console.log("WebSocket connection closed");
+}
+
+socket.onerror = (error) => {
+  console.error("WebSocket error:", error);
+}
 export function Chat() {
   const [messagesContainerRef, messagesEndRef] = useScrollToBottom<HTMLDivElement>();
   const [messages, setMessages] = useState<message[]>([]);
