@@ -9,3 +9,4 @@ websockets
 python-dotenv
 fastapi
 pandas
+langchain-chroma

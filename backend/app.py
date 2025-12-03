@@ -6,6 +6,7 @@ from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings
 from openai import OpenAI
 import os
 import json
+from langchain_chroma import Chroma
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 import pandas as pd
@@ -88,7 +89,19 @@ app = FastAPI(
     description="WebSocket AI assistant using NVIDIA NIM and Chroma"
 )
 
-@app.websocket("/")
+
+@app.on_event("startup")
+async def startup_event():
+    print("Application startup: Vector store is ready.", flush=True)
+    
+@app.on_event("shutdown")
+async def shutdown_event():
+    print("Application shutdown.", flush=True)
+    
+@app.get("/")
+async def read_root():
+    return {"message": "Kerala Police AI Assistant is running."}   
+@app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     try:
